@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar{
+  padding: 0 30px;
+  background: rgb(4, 54, 80);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar>img{
+  height: 60px;
+  width: 120px;
+  border-radius: 10px;
+}
+.navbar>div{
+  color: white;
+  font-size: 40px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.input{
+  background-color: rgb(107, 22, 107);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 100px;
+  padding: 10px;
+}
+.input>input{
+height: 60px;
+flex-grow: 1;
+font-size: 25px;
+}
+.input>input::placeholder{
+  color: orange;
+  text-align: center;
+  font-size: 20px;
+  font-family: cursive;
+}
+.input>input:focus{
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+.input>button{
+  height: 60px;
+  padding: 0 40px;
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  font-family:cursive;
+  background-color: rgb(255, 248, 47);
+  box-shadow: 0 0 8px black;
+}
+.input>button:hover{
+  color:rgb(255, 248, 47);
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0 0 8px rgb(255, 255, 255);
+
+}
+.container{
+  display: grid;
+  min-height: calc(100vh-160px);
+  padding: 20px;
+  grid-template-columns: repeat(4,1fr);
+  gap: 30px;
+  background-color: rgb(187, 232, 255);
+  color: rgb(255, 255, 255);
+  align-content: start;
+}
+.card{
+  background-color: rgb(0, 0, 0);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+h3{
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.buttons>button{
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 0 10px black;
+  border-radius: 4px;
+  background-color: rgb(188, 23, 147);
+}
+.buttons>button:first-child{
+  background-color: rgb(75, 38, 197);
+}
+.buttons>button:hover{
+  transition: all 0.5s ease 0s;
+  transform: scale(1.2,1.2);
+  opacity: 0.7;
+}
