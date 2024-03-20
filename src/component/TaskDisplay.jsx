@@ -1,26 +1,36 @@
 import React, { useState } from 'react'
 import EditModal from './EditModal'
+import { MdDelete } from "react-icons/md";
+import { BiEdit } from "react-icons/bi";
+
 
 function TaskDisplay({ tasks, dispatch }) {
-  const[isModal, setIsModal] = useState(false)
+  const [isModal, setIsModal] = useState(false)
+  const [editTask, setEditTask] = useState({})
 
-  const editHandeler =()=>{
+  //edit modal function
+  const editHandeler = (task, index) => {
     setIsModal(true)
+    setEditTask({ task, index })
+  }
+  //close modal function
+  const closeModal = () => {
+    setIsModal(false)
   }
 
   return (
     <>
       <div className="container">
         {
-          tasks.map((e,i) => {
+          tasks.map((task, index) => {
             return (
               <div className="card">
-                <h3>{e}</h3>
+                <h3>{task}</h3>
                 <div className="buttons">
-                  <button onClick={()=>dispatch({type:"delete", payload:i})}>
-                    Delete</button>
-                  <button onClick={editHandeler}>
-                    Edit</button>
+                  <button onClick={() => dispatch({ type: "delete", payload: index })}>
+                  <MdDelete/> </button>
+                  <button onClick={() => editHandeler(task, index)}>
+                  <BiEdit /></button>
                 </div>
               </div>
             )
@@ -28,7 +38,8 @@ function TaskDisplay({ tasks, dispatch }) {
         }
       </div>
       <div>
-        {isModal && <EditModal></EditModal>}     
+        {isModal && <EditModal closeModal={closeModal}
+          editTask={editTask} dispatch={dispatch} />}
       </div>
     </>
   )
